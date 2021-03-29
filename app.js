@@ -53,13 +53,13 @@ let currentItem = 0;
 
 //load initial item
 window.addEventListener('DOMContentLoaded', function(){
-    showPerson(currentItem);
+    showPerson();
 });
 
 // show person base on item
 
-function showPerson(person){
-    const item = reviews[person];
+function showPerson(){
+    const item = reviews[currentItem];
     img.src = item.img;
     author.textContent = item.name;
     job.textContent = item.job;
@@ -87,4 +87,11 @@ prevBtn.addEventListener('click', function(){
         currentItem = 3;
         showPerson(currentItem);
     }
+});
+
+//show random person
+
+randomBtn.addEventListener('click', function(){
+    currentItem = Math.floor(Math.random() * reviews.length);
+    showPerson();
 })
